@@ -1,1 +1,2 @@
+echo '=== CREATING DOCUMENTATION SOURCE ===';
 make;
