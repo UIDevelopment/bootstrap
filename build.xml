@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<project name="lmn-style-guide" default="deploy" basedir=".">
+    <description>Build process for Lastminute.com style guide (based on bootstrap)</description>
+
+    <target name="load-properties">
+        <property environment="env" />
+        <property name="tag" value="DEV" />
+        <property name="build.version" value="${tag}.${env.BUILD_NUMBER}.${env.GIT_REVISION}"/>
+
+        <!-- define all the major dir paths -->
+        <property name="src.dir" value="${basedir}/bootstrap" />
+        <property name="target.dir" value="${basedir}/target" />
+
+        <echo>Finished</echo>
+    </target>
+
+    <target name="clean">
+        <exec executable="bash" dir="./">
+            <arg value="./build_assets/clean.sh" />
+        </exec>
+    </target>
+
+    <target name="compile">
+        <exec executable="bash">
+            <arg value="./build_assets/compile.sh" />
+        </exec>
+    </target>
+
+    <target name="document">
+        <exec executable="bash">
+            <arg value="./build_assets/document.sh" />
+        </exec>
+    </target>
+
+    <target name="package">
+        <copy todir="${target.dir}/${build.version}">
+            <fileset dir="${src.dir}"
+                     includes="**/*"/>
+        </copy>
+
+        <tar destfile="${target.dir}/package.tar"
+             basedir="${src.dir}"/>
+
+        <echo>Finished</echo>
+    </target>
+
+    <target name="deploy" depends="
+        load-properties,
+        clean,
+        compile,
+        package">
+    </target>
+
+</project>
