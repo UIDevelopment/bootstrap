@@ -77,7 +77,14 @@
 .btn-large {
   padding: @paddingLarge;
   font-size: @fontSizeLarge;
+  height: @btnLargeHeight;
+  // Hover/focus state
+  &:hover,
+  &:focus {
+    height: (@btnLargeHeight - 2);
+  }
   .border-radius(@borderRadiusLarge);
+  
 }
 .btn-large [class^="icon-"],
 .btn-large [class*=" icon-"] {
@@ -120,7 +127,7 @@
 
 // Vertically space out multiple block buttons
 .btn-block + .btn-block {
-  margin-top: 5px;
+  // margin-top: 0; // We don't want Bootstrap to do this for us. Let each app define this. default is 5px - @anibe;
 }
 
 // Specificity overrides
