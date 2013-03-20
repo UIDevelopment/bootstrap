@@ -3224,7 +3224,7 @@ button.close {
   margin-top: 2px;
   text-decoration: none;
   background-position: 0 -15px;
-  border-bottom: 3px solid;
+  border-bottom: 3px solid #cccccc;
 }
 
 .btn:focus {
@@ -3254,11 +3254,17 @@ button.close {
 }
 
 .btn-large {
+  height: 45px;
   padding: 11px 19px;
   font-size: 17.5px;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
+}
+
+.btn-large:hover,
+.btn-large:focus {
+  height: 43px;
 }
 
 .btn-large [class^="icon-"],
@@ -3300,10 +3306,6 @@ button.close {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-.btn-block + .btn-block {
-  margin-top: 5px;
 }
 
 input[type="submit"].btn-block,
