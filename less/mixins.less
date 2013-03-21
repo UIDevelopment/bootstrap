@@ -486,8 +486,6 @@
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
 }
 
-
-
 // COMPONENT MIXINS
 // --------------------------------------------------
 
@@ -525,10 +523,12 @@
     border-color: @btnBorder;
   }
 
-  // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
   &:active,
   &.active {
-    background-color: darken(@endColor, 10%) e("\9");
+    background-color: darken(@endColor, 15%); // e("\9");
+    border-bottom: 1px solid darken(@btnBorder,10%);
+    margin-top: 4px;
+    height: ((@baseLineHeight * 2) - 4);
   }
 }
 

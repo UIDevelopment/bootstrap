@@ -79,11 +79,11 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: @baseLineHeight;
+  height: @baseLineInputHeight; // used to be @baseLineHeight;
   padding: 4px 6px;
-  margin-bottom: @baseLineHeight / 2;
+  margin-bottom: @baseLineInputHeight / 2;
   font-size: @baseFontSize;
-  line-height: @baseLineHeight;
+  line-height: @baseLineInputHeight;
   color: @gray;
   .border-radius(@inputBorderRadius);
   vertical-align: middle;
@@ -453,12 +453,12 @@ select:focus:invalid {
   .add-on {
     display: inline-block;
     width: auto;
-    height: @baseLineHeight;
+    height: @baseLineInputHeight;
     min-width: 16px;
     padding: 4px 5px;
     font-size: @baseFontSize;
     font-weight: normal;
-    line-height: @baseLineHeight;
+    line-height: @baseLineInputHeight;
     text-align: center;
     text-shadow: 0 1px 0 @white;
     background-color: @grayLighter;
@@ -546,7 +546,7 @@ input.search-query {
   padding-left: 14px;
   padding-left: 4px \9; /* IE7-8 doesn't have border-radius, so don't indent the padding */
   margin-bottom: 0; // Remove the default margin on all inputs
-  .border-radius(15px);
+  //.border-radius(15px);
 }
 
 /* Allow for input prepend/append in search forms */
@@ -555,16 +555,16 @@ input.search-query {
   .border-radius(0); // Override due to specificity
 }
 .form-search .input-append .search-query {
-  .border-radius(14px 0 0 14px);
+  //.border-radius(14px 0 0 14px);
 }
 .form-search .input-append .btn {
-  .border-radius(0 14px 14px 0);
+  //.border-radius(0 14px 14px 0);
 }
 .form-search .input-prepend .search-query {
-  .border-radius(0 14px 14px 0);
+  //.border-radius(0 14px 14px 0);
 }
 .form-search .input-prepend .btn {
-  .border-radius(14px 0 0 14px);
+  //.border-radius(14px 0 0 14px);
 }
 
 
